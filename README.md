@@ -55,6 +55,58 @@ echo (%time%) Server restarting!
 timeout 5
 goto StartServer
 ```
+> [!NOTE]
+> <details>
+>  <summary>Explanation of Each Line</summary>
+> 
+> **1. `@title Server Console`**
+> - Sets the title of the Command Prompt window to "Server Console".
+> 
+> **2. `@echo off`**
+> - Turns off command echoing in the Command Prompt to make the output cleaner.
+> 
+> **3. `set "jar_url=https://mineacademy.org/api/paper/latest"`**
+> - Sets the variable jar_url to the URL where the latest Paper server JAR can be downloaded from MineAcademy.
+> 
+> **4. `set "downloaded_file=paperclip.jar"`**
+> - Sets the variable downloaded_file to the name of the downloaded file, in this case, paperclip.jar.
+> 
+> **5. `curl -o "%downloaded_file%" "%jar_url%"`**
+> Uses curl to download the file from the URL specified in jar_url and save it as paperclip.jar.
+> 
+> **6. `:StartServer`**
+> - Defines a label named StartServer which marks the beginning of the loop for starting the server.
+> 
+> **7. `java -Xms4G -Xmx4G -jar "%downloaded_file%" nogui`**
+> - Runs the Minecraft server using the paperclip.jar file with a minimum memory allocation of 4GB (-Xms4G) and a maximum memory allocation of 4GB (-Xmx4G), and without the graphical user interface (nogui).
+> 
+> **8. `cd C:\path\to\directory`**
+> - Changes the directory to where the eula.txt file is located (replace C:\path\to\directory with the actual path).
+> 
+> **9. `powershell -Command "(Get-Content eula.txt) -replace 'eula=false', 'eula=true' | Set-Content eula.txt`"**
+> - Uses PowerShell to modify the eula.txt file by replacing eula=false with eula=true to automatically accept the EULA.
+> 
+> **10. `echo (%time%) Server restarting!`**
+> - Displays the message "Server restarting!" along with the current time in the Command Prompt.
+> 
+> **11. `timeout 5`**
+> - Pauses the script execution for 5 seconds.
+> 
+> **12. `goto StartServer`**
+> - Goes back to the StartServer label to restart the server, creating a loop.
+> 
+> </details>
+> 
+> <details>
+> 
+> <summary>Additional Explanation</summary>
+> 
+> - **Downloading the Server File:** The script downloads the latest version of the Minecraft server from MineAcademy.
+> - **Automatically Accepting EULA:** The script automatically edits the eula. txt file to accept the EULA.
+> - **Looping:** If the server stops, the script waits for 5 seconds and then restarts the server automatically.
+> 
+> </details>
+
 > [!TIP]
 > If you want to increase the memory that the program can use, you can change the values of the -Xms and -Xmx parameters to the desired amount. For example, if you want to increase the memory to 8 gigabytes, you can change the command to:
 >```ruby
