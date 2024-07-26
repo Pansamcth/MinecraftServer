@@ -17,7 +17,6 @@
   - Open your web browser and go to the [Oracle JDK download page](https://www.oracle.com/java/technologies/downloads/?er=221886#java22).
   - Find the latest version of JDK and click on the "Windows" tab.
   - Download the appropriate installer for your system (e.g., `jdk-xx_windows-x64_bin.exe` for 64-bit Windows).
-
 - **Run the Installer**
   - Once the download is complete, locate the downloaded installer file and double-click it to run.
   - If prompted by the User Account Control (UAC), click "Yes" to allow the installer to make changes to your computer.
