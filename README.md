@@ -5,10 +5,19 @@
 - **Minecraft Server Software:** Download from the official Minecraft website.
 
 ## Install Java
+> [!NOTE]
+> ## Java Requirement
+> | Server Version | Java Version |
+> | --- | :---: |
+> | 1.8 to 1.11 | Java 8 |
+> | 1.12 to 1.16.4 | Java 11 |
+> | 1.16.5 | Java 16 |
+> | 1.17.1-1.18.1+ | Java 21 |
 - **Download the Java Development Kit (JDK)**
   - Open your web browser and go to the [Oracle JDK download page](https://www.oracle.com/java/technologies/downloads/?er=221886#java22).
   - Find the latest version of JDK and click on the "Windows" tab.
   - Download the appropriate installer for your system (e.g., `jdk-xx_windows-x64_bin.exe` for 64-bit Windows).
+
 - **Run the Installer**
   - Once the download is complete, locate the downloaded installer file and double-click it to run.
   - If prompted by the User Account Control (UAC), click "Yes" to allow the installer to make changes to your computer.
