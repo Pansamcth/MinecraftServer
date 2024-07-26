@@ -57,20 +57,10 @@ goto StartServer
   - Click the File menu at the top-left corner of the Notepad or any text editor.
   - Select `Save As....`
   - In the Save As dialog, navigate to the folder where your Minecraft server files are located.
-  - In the File name field, type start.bat
+  - In the File name field, type `start.bat`
   - In the Save as type dropdown, select All Files.
   - Click the Save button.
 
-Start the Server
-Double-click start.bat in the C:\MinecraftServer folder.
-
-Accept the EULA
-Run the server for the first time by double-clicking start.bat
-The server will stop running and generate an eula.txt file.
-Open eula.txt with a text editor.
-Change eula=false to eula=true.
-Save the file and close the editor.
-
-Restart the Server
-Double-click start.bat in the C:\MinecraftServer folder.
-
+## Start the Server
+- Navigate to the folder where you saved the `start.bat` file.
+- Double-click the `start.bat` file to run your Minecraft server.
