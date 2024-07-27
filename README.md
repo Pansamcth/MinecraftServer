@@ -1,3 +1,5 @@
+# PURPUR AUTO UPDATED AND RESTART
+
 ## Requirements
 - **Computer:** A computer with good specifications to support multiple players (recommended: a modern CPU and at least 8GB of RAM).
 - **Internet** Connection: A stable connection with sufficient bandwidth.
@@ -40,8 +42,8 @@
 @title Server Console
 @echo off
 
-set "jar_url=https://mineacademy.org/api/paper/latest"
-set "downloaded_file=paperclip.jar"
+set "jar_url=https://mineacademy.org/api/purpur/latest"
+set "downloaded_file=server.jar"
 
 curl -o "%downloaded_file%" "%jar_url%"
 
@@ -65,14 +67,14 @@ goto StartServer
 > **2. `@echo off`**
 > - Turns off command echoing in the Command Prompt to make the output cleaner.
 > 
-> **3. `set "jar_url=https://mineacademy.org/api/paper/latest"`**
-> - Sets the variable jar_url to the URL where the latest Paper server JAR can be downloaded from MineAcademy.
+> **3. `set "jar_url=https://mineacademy.org/api/purpur/latest"`**
+> - Sets the variable `jar_url` to the URL where the latest Paper server JAR can be downloaded from MineAcademy.
 > 
-> **4. `set "downloaded_file=paperclip.jar"`**
-> - Sets the variable downloaded_file to the name of the downloaded file, in this case, paperclip.jar.
+> **4. `set "downloaded_file=server.jar"`**
+> - Sets the variable `downloaded_file` to the name of the downloaded file, in this case, `server.jar`.
 > 
 > **5. `curl -o "%downloaded_file%" "%jar_url%"`**
-> Uses curl to download the file from the URL specified in jar_url and save it as paperclip.jar.
+> Uses curl to download the file from the URL specified in `jar_url` and save it as `server.jar`.
 > 
 > **6. `:StartServer`**
 > - Defines a label named StartServer which marks the beginning of the loop for starting the server.
