@@ -4,14 +4,19 @@
 ```ruby
 @title Server Console
 @echo off
+echo (%time%) Server has starting!...
+echo (%time%) Update found, downloading...
 
 set "jar_url=https://mineacademy.org/api/purpur/latest"
 set "downloaded_file=server.jar"
-
 curl -o "%downloaded_file%" "%jar_url%"
 
+echo (%time%) Jar Update  succassfully!
+echo (%time%) Launching Server
+echo ------------------------------------------------------
+
 :StartServer
-java -Xms4G -Xmx4G -jar "%downloaded_file%" nogui
+java -Xms8G -Xmx8G -jar "%downloaded_file%" nogui
 
 cd C:\path\to\directory
 powershell -Command "(Get-Content eula.txt) -replace 'eula=false', 'eula=true' | Set-Content eula.txt"
