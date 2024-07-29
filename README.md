@@ -39,4 +39,4 @@ goto StartServer
 
 > [!WARNING]
 > ## Install Requirements
-> [Oracle JDK download page.](https://www.oracle.com/java/technologies/javase-downloads.html)
+> ### [Oracle JDK download page.](https://www.oracle.com/java/technologies/javase-downloads.html)
