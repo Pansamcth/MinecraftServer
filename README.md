@@ -36,3 +36,7 @@ goto StartServer
 >```ruby
 > java -Xms8G -Xmx8G -jar "%downloaded_file%" nogui
 > ```
+
+> [!WARNING]
+> ## Install Requirements
+> [Oracle JDK download page.](https://www.oracle.com/java/technologies/javase-downloads.html)
