@@ -40,3 +40,20 @@ goto StartServer
 > [!WARNING]
 > ## Install Requirements
 > ### [Oracle JDK download page.](https://www.oracle.com/java/technologies/javase-downloads.html)
+
+```ruby
+@title Server Console
+@echo off
+echo (%time%) Server has starting!...
+echo ------------------------------------------------------
+
+:StartServer
+java -Xms4096M -Xmx4096M --add-modules=jdk.incubator.vector -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -jar "%downloaded_file%" --nogui
+
+cd C:\path\to\directory
+powershell -Command "(Get-Content eula.txt) -replace 'eula=false', 'eula=true' | Set-Content eula.txt"
+
+echo (%time%) Server restarting!
+timeout 5
+goto StartServer
+```
