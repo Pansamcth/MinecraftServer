@@ -1,59 +1,41 @@
-# PURPUR AUTO UPDATED AND RESTART
-
-## Enter the following code into the file:
 ```ruby
 @title Server Console
 @echo off
-echo (%time%) Server has starting!...
-echo (%time%) Update found, downloading...
-
-set "jar_url=https://mineacademy.org/api/purpur/latest"
-set "downloaded_file=server.jar"
-curl -o "%downloaded_file%" "%jar_url%"
-
-echo (%time%) Jar Update  succassfully!
-echo (%time%) Launching Server
+echo ------------------------------------------------------
+echo                (%time%) Server is starting!         
 echo ------------------------------------------------------
 
+:: กำหนดตัวแปร JAVA_HOME ให้ชี้ไปยังโฟลเดอร์ของ JDK
+set JAVA_HOME=C:\Program Files\Java\jdk-21
+:: เพิ่ม JAVA_HOME ลงใน PATH เพื่อให้สามารถเรียกใช้งาน Java จาก command prompt ได้
+set PATH=%JAVA_HOME%\bin;%PATH%
+
+:: กำหนดตัวแปร Server_file ให้ชี้ไปยังไฟล์เซิร์ฟเวอร์ Minecraft
+set Server_file=purpur-1.21.1-2328.jar
+:: ตั้งค่าขนาด Heap ขั้นต่ำ (-Xms) และขนาด Heap สูงสุด (-Xmx)
+set -Xms=4096M
+set -Xmx=4096M
+:: กำหนด Java options สำหรับการปรับประสิทธิภาพ JVM เพื่อให้เซิร์ฟเวอร์ทำงานได้ดีขึ้น
+set Java_optioms=-XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
+
 :StartServer
-java -Xms4096M -Xmx4096M --add-modules=jdk.incubator.vector -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -jar "%downloaded_file%" --nogui
-
-cd C:\path\to\directory
-powershell -Command "(Get-Content eula.txt) -replace 'eula=false', 'eula=true' | Set-Content eula.txt"
-
-echo (%time%) Server restarting!
-timeout 5
-goto StartServer
-```
-> [!NOTE]
-> ## Additional Explanation
-> - **Downloading the Server File:** The script downloads the latest version of the Minecraft server from MineAcademy.
-> - **Automatically Accepting EULA:** The script automatically edits the eula. txt file to accept the EULA.
-> - **Looping:** If the server stops, the script waits for 5 seconds and then restarts the server automatically.
-
-> [!TIP]
-> If you want to increase the memory that the program can use, you can change the values of the -Xms and -Xmx parameters to the desired amount. For example, if you want to increase the memory to 8 gigabytes, you can change the command to:
->```ruby
-> java -Xms8G -Xmx8G -jar "%downloaded_file%" nogui
-> ```
-
-> [!WARNING]
-> ## Install Requirements
-> ### [Oracle JDK download page.](https://www.oracle.com/java/technologies/javase-downloads.html)
-
-```ruby
-@title Server Console
-@echo off
-echo (%time%) Server has starting!...
+echo Starting the Minecraft server with the following options:
+echo - Minimum Heap Size: %-Xms%
+echo - Maximum Heap Size: %-Xmx%
 echo ------------------------------------------------------
+:: เรียกใช้ไฟล์เซิร์ฟเวอร์ Minecraft ด้วยคำสั่ง java พร้อมกับค่า options และตั้งค่า --nogui เพื่อลดการใช้ทรัพยากร
+java -Xms%-Xms% -Xmx%-Xmx% %Java_optioms% -jar "%Server_file%" --nogui
 
-:StartServer
-java -Xms4096M -Xmx4096M --add-modules=jdk.incubator.vector -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -jar "%downloaded_file%" --nogui
-
+:: เปลี่ยนไปยังโฟลเดอร์ที่มีไฟล์ eula.txt
 cd C:\path\to\directory
+:: แก้ไข eula.txt เพื่อยอมรับเงื่อนไขการใช้งานโดยเปลี่ยน 'eula=false' เป็น 'eula=true'
 powershell -Command "(Get-Content eula.txt) -replace 'eula=false', 'eula=true' | Set-Content eula.txt"
 
-echo (%time%) Server restarting!
+echo ------------------------------------------------------
+echo                (%time%) Server restarting!          
+echo ------------------------------------------------------
+:: หยุดการทำงานเป็นเวลา 5 วินาทีก่อนเริ่มเซิร์ฟเวอร์ใหม่
 timeout 5
+:: กลับไปยังจุดเริ่มต้นของสคริปต์เพื่อเริ่มเซิร์ฟเวอร์ใหม่อีกครั้ง
 goto StartServer
 ```
