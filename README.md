@@ -29,3 +29,5 @@ echo ------------------------------------------------------
 timeout 5
 goto StartServer
 ```
+> [!WARNING]
+> This script requires Java JDK 21 to function. The JAVA_HOME variable is set to the JDK 21 directory path, and this path is added to the PATH environment variable. This setup ensures that the Minecraft server uses JDK 21 to run, along with specific Java options configured in the script to enhance performance.
