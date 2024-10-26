@@ -1,3 +1,21 @@
+# Minecraft Server Console Script
+This batch script is designed to automate the startup of a Minecraft server using Java JDK 21. It includes customizable settings for memory allocation and JVM options to optimize performance. Below is a breakdown of the script's functionality:
+1. Set Java Environment:
+   - The script sets the `JAVA_HOME` environment variable to the JDK 21 installation path and updates the `PATH` to include the JDK binaries.
+2. Server Configuration:
+   - The `Server_file` variable should be replaced with the name of your server JAR file (e.g., `paper-1.21.1.jar`).
+   - Memory settings are configured to allocate a minimum and maximum heap size of 4096MB.
+3. Java Options:
+   - The script includes various JVM options aimed at improving server performance, such as enabling the G1 garbage collector and optimizing memory usage.
+4. Server Startup:
+   - The script enters a loop to start the Minecraft server, displaying the current time and the memory settings being used.
+   - It uses the `java` command to run the specified server JAR file without a graphical user interface (`--nogui`).
+5. EULA Acceptance:
+   - The script changes the `eula.txt` file to accept the End User License Agreement by replacing `eula=false` with `eula=true` using PowerShell.
+Restart Loop:
+   -If the server stops for any reason, the script waits for 5 seconds and then restarts the server automatically.
+
+This script simplifies the management of a Minecraft server by ensuring that it runs with optimal settings and handles restarts automatically.
 ```ruby
 @title Server Console
 @echo off
