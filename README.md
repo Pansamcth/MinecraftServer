@@ -30,4 +30,13 @@ timeout 5
 goto StartServer
 ```
 > [!WARNING]
-> This script requires Java JDK 21 to function. The JAVA_HOME variable is set to the JDK 21 directory path, and this path is added to the PATH environment variable. This setup ensures that the Minecraft server uses JDK 21 to run, along with specific Java options configured in the script to enhance performance.
+> This script requires Java [JDK 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) to function. The JAVA_HOME variable is set to the JDK 21 directory path, and this path is added to the PATH environment variable. This setup ensures that the Minecraft server uses JDK 21 to run, along with specific Java options configured in the script to enhance performance.
+
+> [!TIP]
+> ## Here are the server types that can be used in Minecraft (Java Edition):
+> - **[Vanilla (Minecraft.net)](https://www.minecraft.net/en-us/download/server)** - Supports Datapacks from Mojang.
+> - **[Spigot](https://getbukkit.org/download/spigot)** - Supports Plugins and is suitable for large servers.
+> - **[Paper](https://papermc.io/downloads/paper)** - A fork of Spigot that enhances performance and supports Spigot plugins.
+> - **[Purpur](https://purpurmc.org/downloads)** - A fork of Paper that is more flexible and customizable.
+> - **[Forge](https://files.minecraftforge.net/net/minecraftforge/forge/)** - Designed for Mods, suitable for adding new content to the game.
+> - **[Fabric](https://fabricmc.net/use/server/)** - A modding platform that emphasizes speed and flexibility.
